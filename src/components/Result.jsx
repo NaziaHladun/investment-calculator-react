@@ -14,7 +14,7 @@ export default function Result({ inputNumber }) {
           <th>Invested Capital</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="center">
         {data.map((year) => (
           <tr key={year.year}>
             <td>{year.year}</td>
