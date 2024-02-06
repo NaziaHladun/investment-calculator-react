@@ -10,13 +10,15 @@ function App() {
     duration: 10,
   });
 
+  const inputValid = inputNumber.duration >= 1;
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     console.log(name, value);
     setInputNumber((prevValue) => {
       return {
         ...prevValue,
-        [name]: value,
+        [name]: +value,
       };
     });
   };
@@ -26,7 +28,11 @@ function App() {
       <div id="user-input">
         <InputGroup inputNumber={inputNumber} handleChange={handleChange} />
       </div>
-      <Result inputNumber={inputNumber} />
+      {inputValid ? (
+        <Result inputNumber={inputNumber} />
+      ) : (
+        <p className="center">Invalid value! Try another value</p>
+      )}
     </main>
   );
 }
